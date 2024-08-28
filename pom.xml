@@ -1,0 +1,30 @@
+import java.util.regex.Pattern;
+        import java.util.regex.Matcher;
+
+        public class EmailValidator {
+        public static void main(String[] args) {
+        // Expresión regular para validar correos de @unison.mx o @uson.mx
+        String regex = "^[a-zA-Z0-9._%+-]+@(unison|uson)\\.mx$";
+        Pattern pattern = Pattern.compile(regex);
+
+        // Ejemplos de correos a validar
+        String[] emails = {
+        "alumno@unison.mx",
+        "profesor@uson.mx",
+        "nombre.apellido@unison.mx",
+        "nombre123@uson.mx",
+        "incorrecto@otrodominio.com",
+        "malformato@unisoncom"
+        };
+
+        // Validación de los correos
+        for (String email : emails) {
+        Matcher matcher = pattern.matcher(email);
+        if (matcher.matches()) {
+        System.out.println(email + " es válido.");
+        } else {
+        System.out.println(email + " no es válido.");
+        }
+        }
+        }
+        }
